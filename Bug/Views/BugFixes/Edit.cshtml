@@ -1,0 +1,39 @@
+﻿@model Bug.Models.BugFix
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BugFix</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="FixId" />
+            <div class="form-group">
+                <label asp-for="FixDescription" class="control-label"></label>
+                <input asp-for="FixDescription" class="form-control" />
+                <span asp-validation-for="FixDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BugId" class="control-label"></label>
+                <select asp-for="BugId" class="form-control" asp-items="ViewBag.BugId"></select>
+                <span asp-validation-for="BugId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
