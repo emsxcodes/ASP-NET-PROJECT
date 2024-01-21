@@ -10,7 +10,6 @@ namespace Bug.Models
         public int ReportId { get; set; }
         
         [Required(ErrorMessage = "Description is required")]
-        [RegularExpression(@"^[a-zA-Z0-9ąćęłńóśźż\s]+$", ErrorMessage = "Description can only contain letters, numbers, and spaces.")]
         [Column(TypeName = "nvarchar(200)")]
         public string Report { get; set; }
 
